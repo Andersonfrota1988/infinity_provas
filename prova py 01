@@ -1,0 +1,14 @@
+email_cadastrado = "testeusuario@hotmail.com"
+senha_cadastrada = "123456"
+
+while True:
+    email = input("Digite o seu email:")
+    senha = input("Digite a sua senha:")
+
+    if email == email_cadastrado and senha == senha_cadastrada:
+        print ("Usuario logado com sucesso!")
+        break
+
+    else:
+        print ("Usuário ou senha inválido. Tente novamente. Lembrando que 5 erros consecutivos irão bloquear o email.")
+
