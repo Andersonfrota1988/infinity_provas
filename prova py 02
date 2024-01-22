@@ -1,0 +1,27 @@
+# Faça um programa que solicite ao usuário que digite 10 valores para preencher uma lista. Em seguida, 
+# o programa deve separar os números pares e ímpares em listas diferentes. Por fim, exiba na tela os números pares,
+# os números ímpares em uma tupla, a quantidade de números pares e ímpares presentes na lista, e a soma de todos os 
+# números pares e ímpares, respectivamente.
+
+lista = list()
+
+for i in range(10):
+    valor = int(input("Digite um valor qualquer:"))
+    lista.append(valor)
+
+numeros_pares = list(num for num in lista if num % 2 == 0)
+numeros_impares = list(num for num in lista if num % 2 != 0)
+
+print(f'Os números pares são:{numeros_pares}')
+print("Os números impares são:", tuple(numeros_impares))
+
+quant_pares = len(numeros_pares)
+quant_impares = len(numeros_impares)
+print (f' A quantidade de pares é:{quant_pares}')
+print (f'A quantidade de numeros impares é: {quant_impares}')
+
+soma_pares = sum(numeros_pares)
+soma_impares = sum(numeros_impares)
+print (f' A soma dos números pares é {soma_pares}')
+print (f' A soma dos números impares é {soma_impares}')
+
