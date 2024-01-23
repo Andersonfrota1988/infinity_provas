@@ -1,0 +1,45 @@
+#Remover um aluno: O usuário poderá remover um aluno do dicionário informando o número de matrícula.
+#Visualizar todos os alunos: O usuário poderá visualizar todos os alunos registrados no dicionário, exibindo seus respectivos números
+# de matrícula.
+#O programa deve ser executado em um loop contínuo até que o usuário escolha sair.
+
+alunos = dict()
+
+
+while True:
+    escolha = int(input("Escolha uma das opções abaixos:\n"
+                        "1 - Adicionar um aluno\n"
+                        "2 - Remover um aluno\n"
+                        "3 - Consultar todos alunos\n"
+                        "0 - Sair"))
+    
+    match escolha:
+
+        case 1: 
+            nome = input("Digite o nome do aluno:")
+            matricula = input("Digite o numero da matrícula do aluno:")
+            alunos[matricula] = nome
+            print(f"O aluno {nome} foi adicionado com sucesso.\n")
+
+        case 2:
+            matricula = input("Digite o numero da matricula a ser removida:")
+            if matricula in alunos:
+                nome = alunos.pop(matricula)
+                print (f"O aluno {nome} foi removido com sucesso.")
+            else:
+                print ("Aluno não encontrado.")
+        
+        case 3:
+            if not alunos:
+                print("Não existe aluno cadastrado.")
+            else:
+                print("Relação de alunos:")
+                for matricula, nome in alunos.items():
+                    print(f"Matricula:{matricula}, Nome:{nome}")
+                print()
+        
+        case 4:
+            print(" O programa foi encerrado.")
+            break
+
+
