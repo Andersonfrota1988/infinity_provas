@@ -1,0 +1,28 @@
+# Utilizando as funções map(),filter() e reduce(), escreva um código que execute as seguintes operações:
+# Função map() para obter uma nova lista com o quadrado de cada número da lista numeros
+# Função filter() para obter uma nova lista com números pares da lista numeros
+# Função reduce()  para obter a soma de todos os números da lista numeros
+
+from functools import reduce
+
+def quadrado(numero):
+    return numero ** 2
+
+def par(numero):
+    return numero % 2 == 0
+
+def somar(x, y):
+    return x + y
+
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+quadrados = list(map(quadrado, numeros))
+
+par = list(filter(par, numeros))
+
+total = reduce(somar, numeros)
+
+print (f" Os quadrados dos números são: {quadrados}")
+print (f" Os números pares da lista são:{par}")
+print (f"A soma do total dos números é:{somar}")
+
