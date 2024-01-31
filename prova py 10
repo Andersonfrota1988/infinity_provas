@@ -1,0 +1,36 @@
+# Usando seus conhecimentos aprendidos em sala, realize uma interface de login utilizando a biblioteca Tkinter em Python. 
+# O objetivo é permitir que o usuário faça login somente se a senha tiver mais de 6 dígitos e se o e-mail contiver o caractere "@",
+# ou seja, realizar uma tela de login com restrições de e-mail e senha.
+
+import tkinter as tk
+from tkinter import messagebox
+
+def logar_sistema():
+    email = digite_email.get()
+    senha = digite_senha.get()
+
+    if len(senha) > 6 and "@" in email:
+        messagebox.showinfo("Login efetuado com sucesso.")
+
+    else:
+        messagebox.showerror("Usuário ou senha inválido.")
+
+janela = tk.Tk()
+janela.title("Login sistema")
+
+label_email = tk.Label(janela, text="Email:")
+label_email.pack()
+
+digite_email = tk.Entry(janela)
+digite_email.pack()
+
+label_senha = tk.Label(janela, text="Senha:")
+label_senha.pack()
+
+digite_senha = tk.Entry(janela)
+digite_senha.pack()
+
+botao_login = tk.Button(janela, text="Login", command=logar_sistema)
+botao_login.pack()
+
+janela.mainloop()
