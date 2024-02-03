@@ -1,0 +1,58 @@
+Faça um programa completo utilizando classes e métodos que:
+#Possua uma classe chamada bombaCombustível, com no mínimo esses atributos:
+#i.tipoCombustivel.
+#ii.valorLitro
+#iii.quantidadeCombustivel
+#Possua no mínimo esses métodos:
+#i.abastecerPorValor( )
+#método onde é informado o valor a ser abastecido e mostra a quantidade de litros que foi colocada no veículo
+#ii.abastecerPorLitro( )
+#     –    método onde é informado a quantidade em litros de combustível e mostra o valor a ser pago pelo cliente.
+#iii. alterarValor( )
+#    –    altera o valor do litro do combustível.
+#iv. alterarCombustivel( )
+#     –     altera o tipo do combustível.
+#v.  alterarQuantidadeCombustivel( )
+#     –     altera a quantidade de combustível restante na bomba.
+#OBS: Sempre que acontecer um abastecimento é necessário atualizar a quantidade de combustível total na bomba
+
+class Bomba_de_Combustivel():
+    def __init__(self, tipo_combustivel, vl_litro, quantidade_combustivel):
+        self.tipo_combustivel = tipo_combustivel
+        self.vl_litro = vl_litro
+        self.quantidade_combustivel = quantidade_combustivel
+
+    def abastecimento_vl(self, vl_abastecido):
+        litros_abastecidos = vl_abastecido / self.vl_litro
+        if litros_abastecidos <= self.quantidade_combustivel:
+            self.quantidade_combustivel -= litros_abastecidos
+            return f"Abastecido: {litros_abastecidos:.2f} litros Valor total: R$ {vl_abastecido:.2f}"
+        else:
+            return f"Quantidade de combustivel insuficiente."
+    
+    def abastecer_por_litro(self, litros_abastecidos):
+        valor_a_pagar = litros_abastecidos * self.vl_litro
+        if litros_abastecidos <= self.quantidade_combustivel:
+            self.quantidade_combustivel -= litros_abastecidos
+            return f"Abastecidos {litros_abastecidos:.2f} litros. Valor total: R${valor_a_pagar:.2f}"
+        else:
+            return "Quantidade de combustível insuficiente."
+
+    def alterar_valor(self, novo_valor_litro):
+        self.valor_litro = novo_valor_litro
+        return f"Valor do litro alterado para R${novo_valor_litro:.2f}"
+
+    def alterar_combustivel(self, novo_tipo_combustivel):
+        self.tipo_combustivel = novo_tipo_combustivel
+        return f"Tipo de combustível alterado para {novo_tipo_combustivel}"
+
+    def alterar_quantidade_combustivel(self, nova_quantidade_combustivel):
+        self.quantidade_combustivel = nova_quantidade_combustivel
+        return f"Quantidade de combustível alterada para {nova_quantidade_combustivel:.2f} litros"
+
+bomba = Bomba_de_Combustivel("Etanol", 4.0, 80.0)
+print(bomba.abastecimento_vl(60))  
+print(bomba.abastecer_por_litro(20)) 
+print(bomba.alterar_valor(3.9))  
+print(bomba.alterar_combustivel("Gasolina"))
+print(bomba.alterar_quantidade_combustivel(120))
